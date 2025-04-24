@@ -1,2 +1,4 @@
 # ksp_calc_2D
-A web-based calculator for escape velocities from bodies in the Kerbal Space Program's solar system
+
+This website contains a calculator for interplanetary travel in both the stock KSP system and the OPM + OPX system.
+It's based on the work of olex and kosmo-not's calculations.
