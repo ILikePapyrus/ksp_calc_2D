@@ -17,7 +17,7 @@ REMEMBER:
 
 UNITS OF MEASURE
 Inclination: Degrees (°);
-Semi-major Axis: m;
+Semi-major Axis: m (need to convert to km for calculations in JS);
 Gravity at sea level: m^3/s^2 (need to convert to km^3/s^2 for calculations in JS);
 Radius: m;
 Mass: kg.
