@@ -1,6 +1,8 @@
 REMEMBER:
 - Gravitational Parameter (mu) MUST be in m^3/s^2;
+- Gravitational Parameter (mu) = G * M, where G is the gravitational costant and M is the mass of the body.
 - Surface Gravity (g) = mu/R^2, R = equatorial radius of the body in km;
+- Surface Gravity (g) = (G * M)/R^2, where G is gravitational constant, M is mass and R is the equatorial radius of the body.
 - Escape velocity = sqrt((2mu)/(R+h)), h = parking orbit in km;
 - Orbital velocity = sqrt(mu/(R+h));
 - Time it takes to transfer between two bodies that orbit around the same parent: tH = pi * sqrt((h1 + h2)^3) / (8 * p.mu), h1 & h2 semi-major axis of body of origin and destination respectively (km) and p.mu being the mu of the parent of the body of origin.
@@ -12,6 +14,13 @@ REMEMBER:
 - r_tot * v, with v being the ejection velocity and r_tot being the sum between the radius of the body of origin and the altitude of the spacecraft.
 - Hyperbolic Excess Velocity: e = sqrt(1 + ((2 * (v * v / 2 - mu1 / r_tot) * (r_tot * v) * (r_tot * v)) / (mu1 * mu1))), with v being the ejection velocity, mu1 being the mu of the body of origin and r_tot being the sum between the radius of the body of origin and the altitude of the spacecraft.
 - Ejection Angle: (180 - (cos(1/e) * (180/pi))) % 360
+
+UNITS OF MEASURE
+Inclination: Degrees (°);
+Semi-major Axis: m;
+Gravity at sea level: m^3/s^2 (need to convert to km^3/s^2 for calculations in JS);
+Radius: m;
+Mass: kg.
 
 Stock System Modifications
 Eve:
@@ -26,8 +35,9 @@ Mun:
 Minmus:
     - Parent: Kerbin;
     - Inclination: 6;
+    - Gravity at Sea Level: 0.03;
+    - Gravitational Parameter:
     - Semi-major Axis: 47'000'000;
-    - Gravity: 0.03;
     - Same data for the rest.
 Kerbin:
     - Eccentricity: 0.02;
@@ -37,99 +47,131 @@ Inner Worlds:
 Dres:
     - Parent: Sun;
     - Radius: 138'000;
-    - Semi-major Axis: 37'637'464'361;
+    - Color: 0.45, 0.55, 0.5, 1;
+    - Gravity at Sea Level: 0.092;
+    - Gravitational Parameter:
     - Inclination: 10.593;
-    - Gravity: 0.092;
+    - Semi-major Axis: 37'637'464'361;
 Quazen:
     - Parent: Sun;
     - Radius: 50'000;
-    - Gravity: 0.055;
+    - Color: 0.45, 0.55, 0.5, 1;
+    - Gravity at Sea Level: 0.055;
+    - Gravitational Parameter:
     - Inclination: 18.7716;
     - Semi-major Axis: 46'219'475'128;
 Krov:
     - Parent: Quazen;
     - Radius: 9'500;
-    - Gravity: 0.01;
+    - Color: 0.55, 0.5, 0.5, 1;
+    - Gravity at Sea Level: 0.01;
+    - Gravitational Parameter:
     - Inclination: 183.2;
     - Semi-major Axis: 1'674'195;
 Selbig:
     - Parent: Sun;
     - Radius: 43'300;
-    - Gravity: 0.0484;
+    - Color: #32427a;
+    - Gravity at Sea Level: 0.0484;
+    - Gravitational Parameter:
     - Inclination: 5.1039;
     - Semi-major Axis: 47'000'359'820;
 Hafnia:
     - Parent: Sun;
     - Radius: 21'200;
-    - Gravity: 0.05;
+    - Color: #886F33;
+    - Gravity at Sea Level: 0.05;
+    - Gravitational Parameter:
     - Inclination: 1.918;
     - Semi-major Axis: 34'034'088'658;
 Kortens:
     - Parent: Sun;
     - Radius: 23'000;
-    - Gravity: 0.007;
+    - Color: RGBA(174, 161, 145, 255);
+    - Gravity at Sea Level: 0.007;
+    - Gravitational Parameter:
     - Inclination: 6.610;
     - Semi-major Axis: 36'991'565'496.3;
 Lui:
     - Parent: Kortens;
     - Radius: 2000;
-    - Gravity: 0.003;
+    - Color: RGBA(174, 161, 145, 255);
+    - Gravity at Sea Level: 0.003;
+    - Gravitational Parameter:
     - Inclination: 0.08;
     - Semi-major Axis: 158'400;
 Anton:
     - Parent: Kortens;
     - Radius: 3000;
-    - Gravity: 0.004;
+    - Color: RGBA(174, 161, 145, 255);
+    - Gravity at Sea Level: 0.004;
+    - Gravitational Parameter:
     - Inclination: 8.03;
     - Semi-major Axis: 418'400;
 Loushine:
     - Parent: Sun;
     - Radius: 2645.992;
-    - Gravity: 0.04;
+    - Color: #3c1f2a;
+    - Gravity at Sea Level: 0.04;
+    - Gravitational Parameter:
     - Inclination: 24.4020514934597;
     - Semi-major Axis: 42'692'347'080.252;
 Everhart:
     - Parent: Loushine;
     - Radius: 663.662;
+    - Color: #3c1f2a;
     - Mass: 3e+13;
-    - Gravity: TBD;
+    - Gravity at Sea Level: TBD;
+    - Gravitational Parameter:
     - Inclination: 100.88;
     - Semi-major Axis: 41'749.4;
 Vedra:
     - Parent: Sun;
     - Radius: 3879.367;
+    - Color: #887f73;
     - Mass: 2.5e+16;
-    - Gravity: TBD;
+    - Gravity at Sea Level: TBD;
+    - Gravitational Parameter:
     - Inclination: 64.7444216179719;
     - Semi-major Axis: 86'737'641'244.4166;
 Phaekav:
     - Parent: Sun;
     - Radius: 4'220;
-    - Gravity: 0.00511;
+    - Color: RGBA(106, 106, 106, 200);
+    - Gravity at Sea Level: 0.00511;
+    - Gravitational Parameter:
     - Inclination: 2.93;
     - Semi-major Axis: 8'121'143'000;
 Kret:
     - Parent: Sun;
     - Radius: 5'430;
-    - Gravity: 0.00631;
+    - Color: RGBA(96, 96, 96, 200);
+    - Gravity at Sea Level: 0.00631;
+    - Gravitational Parameter:
     - Inclination: 3.4;
     - Semi-major Axis: 13'599'840'256;
 Doppler:
     - Parent: Sun;
     - Radius: 5000;
-    - Gravity: 0.003;
+    - Color: 0.4, 0.37, 0.23, 1;
+    - Gravity at Sea Level: 0.003;
+    - Gravitational Parameter:
     - Inclination: 4.1;
     - Semi-major Axis: 14'199'135'054;
 Dyva:
     - Parent: Doppler;
     - Radius: 500;
-    - Gravity: 0.0016;
+    - Color: 0.77, 0.7, 0.33, 1;
+    - Gravity at Sea Level: 0.0016;
+    - Gravitational Parameter:
     - Inclination: 3.28;
     - Semi-major Axis: 61'922;
 Neb:
     - Parent: Sun;
     - Radius: 2150;
-    - Gravity: 0.00311;
+    - Color: RGBA(156, 156, 156, 200);
+    - Gravity at Sea Level: 0.00311;
+    - Gravitational Parameter:
     - Inclination: 2.9;
     - Semi-major Axis: 15'100'000'000;
 
@@ -137,79 +179,105 @@ JoolPlus:
 Jool:
     - Parent: Sun;
     - Radius: Same as before;
-    - Gravity: Same as before;
+    - Color: #7F9E74;
+    - Gravity at Sea Level: Same as before;
+    - Gravitational Parameter:
     - Inclination: 1.304;
     - Semi-major Axis: 68'773'560'320;
 Meto:
     - Parent: Jool;
     - Radius: 3'040;
-    - Gravity: 0.00042245;
+    - Color: #B7927F;
+    - Gravity at Sea Level: 0.00042245;
+    - Gravitational Parameter:
     - Inclination: 0.0019;
     - Semi-major Axis: 12'797'900;
 Alnes:
     - Parent: Jool;
     - Radius: 15'000;
-    - Gravity: 0.003;
+    - Color: #801900;
+    - Gravity at Sea Level: 0.003;
+    - Gravitational Parameter:
     - Inclination: 0.0374;
     - Semi-major Axis: 18'136'584;
 Laythe:
     - Parent: Jool;
     - Radius: Same as before;
-    - Gravity: Same as before;
+    - Color: Same as before;
+    - Gravity at Sea Level: Same as before;
+    - Gravitational Parameter:
     - Inclination: Same as before;
     - Semi-major Axis: 42'170'000;
 Vall:
     - Parent: Jool;
     - Radius: Same as before;
-    - Gravity: Same as before;
+    - Color: Same as before;
+    - Gravity at Sea Level: Same as before;
+    - Gravitational Parameter:
     - Inclination: Same as before;
     - Semi-major Axis: 67'090'000;
 Tylo:
     - Parent: Jool;
     - Radius: Same as before;
-    - Gravity: 0.33;
+    - Color: Same as before;
+    - Gravity at Sea Level: 0.33;
+    - Gravitational Parameter:
     - Inclination: Same as before;
     - Semi-major Axis: 107'040'000;
 Klip:
     - Parent: Jool;
     - Radius: 241'000;
-    - Gravity: 0.126;
+    - Color: #a28966;
+    - Gravity at Sea Level: 0.126;
+    - Gravitational Parameter:
     - Inclination: 0.192;
     - Semi-major Axis: 188'270'000;
 Bop:
     - Parent: Jool;
     - Radius: Same as before;
-    - Gravity: Same as before;
+    - Color: Same as before;
+    - Gravity at Sea Level: Same as before;
+    - Gravitational Parameter:
     - Inclination: 4.774;
     - Semi-major Axis: 188'270'000;
 Pol:
     - Parent: Jool;
     - Radius: Same as before;
-    - Gravity: Same as before;
+    - Color: Same as before;
+    - Gravity at Sea Level: Same as before;
+    - Gravitational Parameter:
     - Inclination: 9.281;
     - Semi-major Axis: 739'613'000;
 Palloocus:
     - Parent: Sun;
     - Radius: 30'000;
-    - Gravity: 0.03;
+    - Color: 0.5, 0.48, 0.5, 1;
+    - Gravity at Sea Level: 0.03;
+    - Gravitational Parameter:
     - Inclination: 6.8482;
     - Semi-major Axis: 68'773'560'320;
 Euribanne:
     - Parent: Sun;
     - Radius: 18'000;
-    - Gravity: 0.015;
+    - Color: 0.48255, 0.38454, 0.41488, 1;
+    - Gravity at Sea Level: 0.015;
+    - Gravitational Parameter:
     - Inclination: 4.487;
     - Semi-major Axis: 68'773'560'320;
 Eurbon:
     - Parent: Euribanne;
     - Radius: 5'000;
-    - Gravity: 0.003;
+    - Color: 0.35, 0.34, 0.3, 1;
+    - Gravity at Sea Level: 0.003;
+    - Gravitational Parameter:
     - Inclination: 6.28;
     - Semi-major Axis: 398'445;
 Palloomus:
     - Parent: Palloocus;
     - Radius: 27'000;
-    - Gravity: 0.028;
+    - Color: 0.5, 0.48, 0.5, 1;
+    - Gravity at Sea Level: 0.028;
+    - Gravitational Parameter:
     - Inclination: 2.88;
     - Semi-major Axis: 363'975;
 
@@ -217,88 +285,116 @@ SarnusPlus
 Sarnus:
     - Parent: Sun;
     - Radius: 6'991'100;
-    - Gravity: 2.384;
+    - Color: Same as before;
+    - Gravity at Sea Level: 2.384;
+    - Gravitational Parameter:
     - Inclination: Same as before;
     - Semi-major Axis: Same as before;
 Vizak:
     - Parent: Sarnus;
     - Radius: 3'100;
-    - Gravity: 0.0005;
+    - Color: 0.4, 0.4, 0.4, 1.0;
+    - Gravity at Sea Level: 0.0005;
+    - Gravitational Parameter:
     - Inclination: 0.005;
     - Semi-major Axis: 16'601'473;
 Ryla:
     - Parent: Sarnus;
     - Radius: 5'250;
-    - Gravity: 0.0005;
+    - Color: #a08d76;
+    - Gravity at Sea Level: 0.0005;
+    - Gravitational Parameter:
     - Inclination: 0.005;
     - Semi-major Axis: 16'994'180;
 Hale:
     - Parent: Sarnus;
     - Radius: Same as before;
-    - Gravity: Same as before;
+    - Color: Same as before;
+    - Gravity at Sea Level: Same as before;
+    - Gravitational Parameter:
     - Inclination: 1.5;
     - Semi-major Axis: 12'169'413;
     - SOI: 18'000;
 Masmar:
     - Parent: Sarnus;
     - Radius: 41'820;
-    - Gravity: 0.01148;
+    - Color: #cbd8da;
+    - Gravity at Sea Level: 0.01148;
+    - Gravitational Parameter:
     - Inclination: 1.574;
     - Semi-major Axis: 18'553'900;
 Ovok:
     - Parent: Sarnus;
     - Radius: 4'800;
-    - Gravity: 0.0005;
+    - Color: 0.690196, 0.768627, 0.870588, 1;
+    - Gravity at Sea Level: 0.0005;
+    - Gravitational Parameter:
     - Inclination: 0.507;
     - Semi-major Axis: 19'470'000;
 Encethys:
     - Parent: Sarnus;
     - Radius: 45'200;
-    - Gravity: 0.01148;
+    - Color: #ffffff;
+    - Gravity at Sea Level: 0.01148;
+    - Gravitational Parameter:
     - Inclination: 2.3;
     - Semi-major Axis: 24'437'691;
 Eeloo:
     - Parent: Sarnus;
     - Radius: 76'350;
-    - Gravity: 0.0265;
+    - Color: Same as before;
+    - Gravity at Sea Level: 0.0265;
+    - Gravitational Parameter:
     - Inclination: 1.12;
     - Semi-major Axis: 29'461'900;
 Slate:
     - Parent: Sarnus;
     - Radius: Same as before;
-    - Gravity: Same as before;
+    - Color: Same as before;
+    - Gravity at Sea Level: Same as before;
+    - Gravitational Parameter:
     - Inclination: Same as before;
     - Semi-major Axis: 52'704'000;
 Tekto:
     - Parent: Sarnus;
     - Radius: Same as before;
-    - Gravity: Same as before;
+    - Color: Same as before;
+    - Gravity at Sea Level: Same as before;
+    - Gravitational Parameter:
     - Inclination: Same as before;
     - Semi-major Axis: 122'187'000;
 Hypo:
     - Parent: Sarnus;
     - Radius: 13'500;
-    - Gravity: 0.00214;
+    - Color: #e0ceb8;
+    - Gravity at Sea Level: 0.00214;
+    - Gravitational Parameter:
     - Inclination: 10.1;
     - Semi-major Axis: 148'100'900;
 Phabus:
     - Parent: Sarnus;
     - Radius: 10'650;
-    - Gravity: 0.00648;
+    - Color: 0.4, 0.3, 0.2, 1.0;
+    - Gravity at Sea Level: 0.00648;
+    - Gravitational Parameter:
     - Inclination: 151.78;
     - Semi-major Axis: 1'296'000'000;
 Egin:
     - Parent: Sarnus;
     - Radius: 999.82;
-    - Mass: 7.82e+8
-    - Gravity: TBD;
+    - Mass: 7.82e+8;
+    - Color: 0.3, 0.3, 0.3, 1.0;
+    - Gravity at Sea Level: TBD;
+    - Gravitational Parameter:
     - Inclination: 0.01;
     - Semi-major Axis: 16'749'366.5;
 Palar:
     - Parent: Sarnus;
     - Radius: 1'839.795;
     - Mass: 1.15e+13;
-    - Gravity: TBD;
+    - Color: 0.3, 0.3, 0.3, 1.0;
+    - Gravity at Sea Level: TBD;
+    - Gravitational Parameter:
     - Inclination: 0.1810;
     - Semi-major Axis: 21'230'000;
 
@@ -306,75 +402,99 @@ UrlumPlus
 Urlum:
     - Parent: Sun;
     - Radius: 1'420'000;
-    - Gravity: 0.925;
+    - Color: Same as before;
+    - Gravity at Sea Level: 0.925;
+    - Gravitational Parameter:
     - Inclination: Same as before;
     - Semi-major Axis: Same as before;
 Picna:
     - Parent: Urlum;
     - Radius: 13'600;
-    - Gravity: 0.01;
+    - Color: Default;
+    - Gravity at Sea Level: 0.01;
+    - Gravitational Parameter:
     - Inclination: 182.93;
     - Semi-major Axis: 8'791'000;
 Hock:
     - Parent: Urlum;
     - Radius: 10'376.486;
     - Mass: 4.3e+17;
-    - Gravity: TBD;
+    - Color: 0.6, 0.6, 0.7;
+    - Gravity at Sea Level: TBD;
+    - Gravitational Parameter:
     - Inclination: 182.47;
     - Semi-major Axis: 7'875'000;
 Polta:
     - Parent: Urlum;
     - Radius: 55'000;
-    - Gravity: 0.0769;
+    - Color: Same as before;
+    - Gravity at Sea Level: 0.0769;
+    - Gravitational Parameter:
     - Inclination: 182.89;
     - Semi-major Axis: 13'560'000;
 Priax:
     - Parent: Urlum;
     - Radius: 17'500;
-    - Gravity: Same as before;
+    - Color: Same as before;
+    - Gravity at Sea Level: Same as before;
+    - Gravitational Parameter:
     - Inclination: 182.73;
     - Semi-major Axis: 13'560'000;
 Dathil:
     - Parent: Urlum;
     - Radius: 57'800;
-    - Gravity: 0.02743037;
+    - Color: 0.24, 0.25, 0.17, 1;
+    - Gravity at Sea Level: 0.02743037;
+    - Gravitational Parameter:
     - Inclination: 183.81;
     - Semi-major Axis: 25'321'000;
 Biscotti:
     - Parent: Urlum;
     - Radius: 10'355.1106;
     - Mass: 1.48e+17;
-    - Gravity: TBD;
+    - Color: #eddbc4;
+    - Gravity at Sea Level: TBD;
+    - Gravitational Parameter:
     - Inclination: 182.75;
     - Semi-major Axis: 42'908'000;
 Wal:
     - Parent: Urlum;
     - Radius: 370'000;
-    - Gravity: 0.37;
+    - Color: 0.42, 0.31, 0.22, 1;
+    - Gravity at Sea Level: 0.37;
+    - Gravitational Parameter:
     - Inclination: 181.76;
     - Semi-major Axis: 80'765'000;
 Tal:
     - Parent: Wal;
     - Radius: 24'000;
-    - Gravity: 0.05;
+    - Color: Default;
+    - Gravity at Sea Level: 0.05;
+    - Gravitational Parameter:
     - Inclination: 181.92;
     - Semi-major Axis: 2'982'000;
 Lyxis:
     - Parent: Urlum;
     - Radius: 76'140;
-    - Gravity: 0.0338;
+    - Color: 0.441, 0.32, 0.42, 1;
+    - Gravity at Sea Level: 0.0338;
+    - Gravitational Parameter:
     - Inclination: 29.403;
     - Semi-major Axis: 1'219'323'000;
 Pab:
     - Parent: Sun;
     - Radius: 28'000;
-    - Gravity: 0.023;
+    - Color: 0.729, 0.56, 0.56, 1;
+    - Gravity at Sea Level: 0.023;
+    - Gravitational Parameter:
     - Inclination: 7.094;
     - Semi-major Axis: 199'686'243'317;
 Pymm:
     - Parent: Pab;
     - Radius: 5'000;
-    - Gravity: 0.003;
+    - Color: 0.502, 0.502, 0.502, 1;
+    - Gravity at Sea Level: 0.003;
+    - Gravitational Parameter:
     - Inclination: 7;
     - Semi-major Axis: 144'472;
 
@@ -382,60 +502,80 @@ NeidonPlus
 Neidon:
     - Parent: Sun;
     - Radius: 2'450'000;
-    - Gravity: 1.15;
+    - Color: 0.415686, 0.352941, 0.803922, 1;
+    - Gravity at Sea Level: 1.15;
+    - Gravitational Parameter:
     - Inclination: 1.27;
     - Semi-major Axis: 409'355'191'706;
 Nito:
     - Parent: Neidon;
     - Radius: 9'000;
-    - Gravity: 0.004;
+    - Color: 0.59215, 0.55294, 0.61176, 1;
+    - Gravity at Sea Level: 0.004;
+    - Gravitational Parameter:
     - Inclination: 1.3;
     - Semi-major Axis: 5'762'800;
 Tito:
     - Parent: Neidon;
     - Radius: 9'500;
-    - Gravity: 0.004;
+    - Color: 0.22745, 0.18431, 0.19216, 1;
+    - Gravity at Sea Level: 0.004;
+    - Gravitational Parameter:
     - Inclination: 0.1;
     - Semi-major Axis: 5'983'893.1;
 Gryspar:
     - Parent: Neidon;
     - Radius: 26'000;
-    - Gravity: 0.01977;
+    - Color: 0.4, 0.4, 0.4, 1.0;
+    - Gravity at Sea Level: 0.01977;
+    - Gravitational Parameter:
     - Inclination: 0.251;
     - Semi-major Axis: 9'024'042;
 Hargaladh:
     - Parent: Neidon;
     - Radius: 1'700;
-    - Gravity: 0.002;
+    - Color: 0.1, 0.1, 0.11, 1;
+    - Gravity at Sea Level: 0.002;
+    - Gravitational Parameter:
     - Inclination: 2.7;
     - Semi-major Axis: 10'946'855;
 Chymere:
     - Parent: Neidon;
     - Radius: 88'500;
-    - Gravity: 0.1;
+    - Color: 0.79216, 0.72157, 0.78039, 1;
+    - Gravity at Sea Level: 0.1;
+    - Gravitational Parameter:
     - Inclination: 0.077;
     - Semi-major Axis: 11'823'955;
 Thatmo:
     - Parent: Neidon;
     - Radius: 286'000;
-    - Gravity: 0.232;
+    - Color: 0.901961, 0.901961, 0.980392, 1;
+    - Gravity at Sea Level: 0.232;
+    - Gravitational Parameter:
     - Inclination: 161.1;
     - Semi-major Axis: 35'475'900;
 Nissee:
     - Parent: Neidon;
     - Radius: 32'000;
-    - Gravity: 0.05;
+    - Color: 0.823529, 0.705882, 0.54902, 1;
+    - Gravity at Sea Level: 0.05;
+    - Gravitational Parameter:
     - Inclination: 29.56;
     - Semi-major Axis: 487'743'514;
 Nyla:
     - Parent: Neidon;
     - Radius: 23'000;
-    - Gravity: 0.00977;
+    - Color: 0.4, 0.4, 0.4, 1.0;
+    - Gravity at Sea Level: 0.00977;
+    - Gravitational Parameter:
     - Inclination: 126.9;
     - Semi-major Axis: 4'959'830'000;
 Psei:
-    - PArent: Nyla;
+    - Parent: Nyla;
     - Radius: 17'000;
-    - Gravity: 0.00677;
+    - Color: 0.4, 0.4, 0.4, 1.0;
+    - Gravity at Sea Level: 0.00677;
+    - Gravitational Parameter:
     - Inclination: 13.753;
     - Semi-major Axis: 210'500;
